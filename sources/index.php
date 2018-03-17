@@ -1,9 +1,23 @@
 <?php
-  session_start();
+  /*session_start();
   ini_set("display_errors", "1");
   require_once('model/Database.php');
   $db = new Database();
   $db = $db->getConnexion();
+
+  if (( isset($_GET['ctrl']) && !empty($_GET['ctrl']) ) && (isset($_GET['action']) && !empty($_GET['action']) )) {
+        $ctrl = $_GET['ctrl'];
+        $action = $_GET['action'];
+    }
+    else {
+
+        $ctrl = 'user';
+        $action = 'default';
+    }
+    require_once('controller/' . $ctrl  . 'Controller.class.php');
+
+    $ctrl = $ctrl . 'Controller';
+    $controller = new $ctrl($db);*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,8 +33,8 @@
           <div class="col-xs-6 col-sm-4">-- LOGO --</div>
           <div class="col-xs-6 col-sm-4"></div>
           <div class="col-xs-6 col-sm-4">
-              <button class="inscription btn my-2 my-sm-0" type="submit">Inscription</button>
-              <button class="connexion btn my-2 my-sm-0" type="submit">Connexion</button>
+              <button onClick="window.location.href=\'index.php?ctrl=user&action=login" class="inscription btn my-2 my-sm-0" type="submit">Inscription</button>
+              <button onClick="window.location.href=\'index.php?ctrl=user&action=inscription" class="connexion btn my-2 my-sm-0" type="submit">Connexion</button>
 
           </div>
       </div>
@@ -58,6 +72,12 @@
                   </div>
               </nav>
           </div>
+      </div>
+
+      <div class="row">
+          <?php
+            //$controller->$action();
+          ?>
       </div>
 
   </body>
