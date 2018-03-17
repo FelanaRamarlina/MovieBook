@@ -1,0 +1,23 @@
+.menu {
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.inscription{
+    color:#28a745;
+}
+.connexion {
+    color:#005cbf;
+}
+.inscription, .connexion{
+    float: right;
+}
+.connexion, .inscription {
+    margin-right: 5px;
+}
+.connexion:hover{
+    border:1px solid #005cbf;
+}
+.inscription:hover{
+    border: 1px solid #28a745;
+}
