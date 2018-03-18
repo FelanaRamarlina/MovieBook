@@ -1,3 +1,7 @@
+
+-- LOGIN admin:
+-- id: admin@gmail.com, password: admin
+
 -- phpMyAdmin SQL Dump
 -- version 4.7.3
 -- https://www.phpmyadmin.net/
@@ -86,7 +90,8 @@ CREATE TABLE `users` (
   `lastname` varchar(100) NOT NULL,
   `firstname` varchar(100) NOT NULL,
   `mail` varchar(100) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `admin` boolean NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -174,3 +179,5 @@ INSERT INTO categories(name) VALUES
   ('Musique');
 
 
+INSERT INTO users(lastname,firstname,mail,password) VALUES
+  ('Adminlastname','Adminfisrtsname','admin@gmail.com','admin');
