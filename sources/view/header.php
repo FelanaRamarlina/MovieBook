@@ -2,7 +2,7 @@
     <div class="col-xs-6 col-sm-4">-- LOGO --</div>
     <div class="col-xs-6 col-sm-4"></div>
     <div class="col-xs-6 col-sm-4">
-         <button onClick="window.location.href='index.php?ctrl=user&action=deconnexion" class="connexion btn my-2 my-sm-0" type="submit">Déconnexion</button>
+         <button onClick="window.location.href='index.php?ctrl=user&action=deconnexion'" class="connexion btn my-2 my-sm-0" type="submit">Déconnexion</button>
         <button onClick="window.location.href='#" class="inscription btn my-2 my-sm-0" type="submit">Mon profil</button>
 
     </div>

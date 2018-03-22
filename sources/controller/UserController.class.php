@@ -18,36 +18,52 @@ class userController {
         require('./view/main.php');
     }
 
-
-    public function doLogin() {
-        $this->user = new User();
-
-        $dologinQuery = "SELECT mail, password,admin FROM users WHERE mail = :mail and password = :password";
-
-        $req = $this->db->prepare($dologinQuery);
-        $req->execute(array(
-            "mail" => $_POST['mail'],
-            "password" => $_POST['password']
-        ));
-
-        while ($donnees = $req->fetch())
-        {
-            $login = $donnees['mail'];
-            $password = $donnees['password'];
-            $admin = $donnees['admin'];
-        }
-
-
-        if (!empty($login) && !empty($password)) {
-            $info = "Connexion reussie";
-            $_SESSION['user'] = $login;
-            $page="fiches";
-            $action="fiches";
-        }else {
-            $info = "Identifiants incorrects.";
+    public function securite() {
+        if(isset($_SESSION['user'])){
+            $page = "fiches";
+        }else{
             $page = "login";
         }
         require('view/main.php');
+    }
+
+
+    public function doLogin() {
+        if(isset($_SESSION['user'])){
+            $page = "fiches";
+        }else{
+            $this->user = new User();
+
+            $dologinQuery = "SELECT mail, password,admin FROM users WHERE mail = :mail and password = :password";
+
+            $req = $this->db->prepare($dologinQuery);
+            $req->execute(array(
+                "mail" => $_POST['mail'],
+                "password" => $_POST['password']
+            ));
+
+            while ($donnees = $req->fetch())
+            {
+                $login = $donnees['mail'];
+                $password = $donnees['password'];
+                $admin = $donnees['admin'];
+            }
+
+
+            if (!empty($login) && !empty($password)) {
+                $_SESSION['user'] = $login;
+                $page="fiches";
+                ?>
+                    <script>
+                        window.location.href = "./index.php?ctrl=user&action=doLogin";
+                    </script>
+                <?php
+            }else {
+                $info = "Identifiants incorrects.";
+                $page = "login";
+            }
+        }
+        require('./view/main.php');
     }
 
     public function create() {
@@ -93,7 +109,12 @@ class userController {
 
     public function deconnexion(){
         session_destroy();
-        $page = 'login';
-        require('./views/main.php');
+        $page= "login";
+        require('./view/main.php');
+        ?>
+        <script>
+            window.location.href = "./index.php?ctrl=user&action=login";
+        </script>
+        <?php
     }
 }

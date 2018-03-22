@@ -1,20 +1,18 @@
 <?php
-  session_start();
-  require("./view/securite.php");
-
-ini_set("display_errors", "1");
-  require_once('model/Database.php');
-  $db = new Database();
-  $db = $db->getConnexion();
+    session_start();
+    ini_set("display_errors", "1");
+    require_once('model/Database.php');
+    $db = new Database();
+    $db = $db->getConnexion();
 
 
-  if (( isset($_GET['ctrl']) && !empty($_GET['ctrl']) ) && (isset($_GET['action']) && !empty($_GET['action']) )) {
+    if (( isset($_GET['ctrl']) && !empty($_GET['ctrl']) ) && (isset($_GET['action']) && !empty($_GET['action']))) {
         $ctrl = $_GET['ctrl'];
         $action = $_GET['action'];
     }
     else {
         $ctrl = 'user';
-        $action = 'fiches';
+        $action = 'securite';
     }
     require_once('controller/' . $ctrl  . 'Controller.class.php');
 
@@ -43,4 +41,5 @@ ini_set("display_errors", "1");
         ?>
   </div>
   </body>
+
 </html>
