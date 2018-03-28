@@ -37,10 +37,10 @@ class userController {
             $dologinQuery = "SELECT mail, password,admin FROM users WHERE mail = :mail and password = :password";
 
             $req = $this->db->prepare($dologinQuery);
-            $req->execute(array(
-                "mail" => $_POST['mail'],
-                "password" => $_POST['password']
-            ));
+            $req->execute([
+                'mail' => $_POST['mail'],
+                'password' => $_POST['password']
+            ]);
 
             while ($donnees = $req->fetch())
             {
@@ -53,11 +53,6 @@ class userController {
             if (!empty($login) && !empty($password)) {
                 $_SESSION['user'] = $login;
                 $page="fiches";
-                ?>
-                    <script>
-                        window.location.href = "./index.php?ctrl=user&action=doLogin";
-                    </script>
-                <?php
             }else {
                 $info = "Identifiants incorrects.";
                 $page = "login";
@@ -111,10 +106,5 @@ class userController {
         session_destroy();
         $page= "login";
         require('./view/main.php');
-        ?>
-        <script>
-            window.location.href = "./index.php?ctrl=user&action=login";
-        </script>
-        <?php
     }
 }
