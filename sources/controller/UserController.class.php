@@ -18,51 +18,39 @@ class userController {
         require('./view/main.php');
     }
 
-    public function securite() {
-        if(isset($_SESSION['user'])){
-            $page = "fiches";
-        }else{
-            $page = "login";
-        }
-        require('view/main.php');
-    }
-
-
     public function doLogin() {
-        if(isset($_SESSION['user'])){
-            $page = "fiches";
-        }else{
-            $this->user = new User();
+        $this->user = new User();
 
-            $dologinQuery = "SELECT mail, password,admin FROM users WHERE mail = :mail and password = :password";
+        $dologinQuery = "SELECT mail, password,admin FROM users WHERE mail = :mail and password = :password";
 
-            $req = $this->db->prepare($dologinQuery);
-            $req->execute([
+        $req = $this->db->prepare($dologinQuery);
+        $req->execute([
                 'mail' => $_POST['mail'],
                 'password' => $_POST['password']
-            ]);
+        ]);
 
-            while ($donnees = $req->fetch())
-            {
-                $login = $donnees['mail'];
-                $password = $donnees['password'];
-                $admin = $donnees['admin'];
-            }
-
-
-            if (!empty($login) && !empty($password)) {
-                $_SESSION['user'] = $login;
-                $page="fiches";
-            }else {
-                $info = "Identifiants incorrects.";
-                $page = "login";
-            }
+        while ($donnees = $req->fetch())
+        {
+            $login = $donnees['mail'];
+            $password = $donnees['password'];
+            $admin = $donnees['admin'];
         }
-        require('./view/main.php');
+
+
+        if (!empty($login) && !empty($password)) {
+            $_SESSION['user'] = $login;
+            //$page="fiches";
+            header('location: index.php?ctrl=user&action=fiches');
+        }else {
+            $info = "Identifiants incorrects.";
+            //$page = "login";
+            header('location: index.php?ctrl=user&action=login');
+        }
+        //require('./view/main.php');
     }
 
-    public function create() {
-        $page = "create";
+    public function createUser() {
+        $page = "createUser";
         require('./view/main.php');
     }
 
@@ -102,9 +90,9 @@ class userController {
         require('./view/main.php');
     }
 
-    public function deconnexion(){
+    public function deconnexion()
+    {
         session_destroy();
-        $page= "login";
-        require('./view/main.php');
+        header('location: index.php?ctrl=user&action=login');
     }
 }
