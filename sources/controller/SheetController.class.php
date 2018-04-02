@@ -11,6 +11,12 @@ class sheetController {
 		require_once('./model/SheetManager.php');
 		$this->sheetManager = new SheetManager($db1);
     }
+    /*Page affichage des fiches*/
+
+    public function sheets() {
+        $page = "sheets";
+        require('./view/main.php');
+    }
 	public static function getInstance ($db) {
         if (!(self::$_instance instanceof self))
             self::$_instance = new self($db);

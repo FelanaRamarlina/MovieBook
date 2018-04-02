@@ -179,5 +179,3 @@ INSERT INTO categories(name) VALUES
   ('Musique');
 
 
-INSERT INTO users(lastname,firstname,mail,password) VALUES
-  ('Adminlastname','Adminfisrtsname','admin@gmail.com','admin');

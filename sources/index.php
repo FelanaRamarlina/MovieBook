@@ -10,7 +10,7 @@
 
     if($ctrl && $action)
     {
-        if($_GET['action'] == 'login' || $_GET['action'] == 'doLogin') {
+        if($_GET['action'] == 'login' || $_GET['action'] == 'doLogin' || $_GET['action'] == 'createUser' || $_GET['action'] == 'doCreate') {
             $ctrl = $_GET['ctrl'];
             $action = $_GET['action'];
         }

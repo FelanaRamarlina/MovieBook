@@ -26,17 +26,19 @@ body {
     border: 1px solid #28a745;
 }
 
-/*login*/
-.login {
+.form {
     padding-top: 100px;
     background-color:white;
 }
-.login input {
+.form input {
     display: block;
-    width: 60%;
     padding: 10px;
 }
+/*login*/
 
+.formLogin input {
+    width: 60%;
+}
 .left img {
     margin-left:57%;
     width: 55%;
@@ -65,3 +67,22 @@ body {
     display: inline-block;
 }
 
+input[type="submit"] {
+    margin-bottom: 20px;
+}
+
+.formLogin p {
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+.create, .formLogin p {
+    display: inline-block;
+}
+
+/*create*/
+.formCreate input {
+    width: 100%;
+    margin-bottom: 10px;
+
+}
