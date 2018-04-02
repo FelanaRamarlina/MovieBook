@@ -1,23 +1,25 @@
 <?php
 class sheetController {
 
-	private $sheetManager;
-	private $sheet;
-	private static $_instance;
+    private $sheetManager;
+    private $sheet;
+    private $db;
 
-    private function __construct($db1) {
+    public function __construct($db1) {
 
-		require('./model/Sheet.php');
-		require_once('./model/SheetManager.php');
-		$this->sheetManager = new SheetManager($db1);
+        require('model/Sheet.class.php');
+        require_once('model/SheetManager.class.php');
+        $this->sheetManager = new SheetManager($db1);
+        $this->db = $db1 ;
     }
-    /*Page affichage des fiches*/
 
+    /*Page des fiches*/
     public function sheets() {
         $page = "sheets";
         require('./view/main.php');
     }
-	public static function getInstance ($db) {
+
+    /*public static function getInstance ($db) {
         if (!(self::$_instance instanceof self))
             self::$_instance = new self($db);
 
@@ -32,21 +34,21 @@ class sheetController {
 		$data=$this->test_fields();
 
 		if($data!=""){
-			
-			$sheet=$this->sheet=new sheet();	
+
+			$sheet=$this->sheet=new sheet();
 			$sheet->hydrate($data);
-			
-		
-			}		
+
+
+			}
 		header('Location:index.php'.$loc);
 	}
 	/*public function modif(){
 		$page="updatesheet";
 		require('./view/main.php');
 	}
-	
+
 	public function update(){
-		
+
 		$data=$this->test_fields();
 
 		if($data){
@@ -59,17 +61,15 @@ class sheetController {
 		require('./view/main.php');
 	}
 	*/
-	private function test_fields(){
-		$data=["title"=>"", "director"=>"", "date"=>"", "nationality"=>"", "synopsis"=>"", "image"=>""];
-		foreach($data as $key=>$value){
-			if(isset($_POST[$key]) && $_POST[$key]!=""){
-				$data[$key]=$_POST[$key];
-			}else{
-				return false;
-			}
-		}
-		return $data;
-	}
-	
-
+    /*private function test_fields(){
+        $data=["title"=>"", "director"=>"", "date"=>"", "nationality"=>"", "synopsis"=>"", "image"=>""];
+        foreach($data as $key=>$value){
+            if(isset($_POST[$key]) && $_POST[$key]!=""){
+                $data[$key]=$_POST[$key];
+            }else{
+                return false;
+            }
+        }
+        return $data;
+    }*/
 }

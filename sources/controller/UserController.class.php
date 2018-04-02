@@ -40,7 +40,7 @@ class userController {
         if (isset($login) && isset($password)) {
             $_SESSION['user'] = $login;
             //$page="fiches";
-            header('location: index.php?ctrl=user&action=fiches');
+            header('location: index.php?ctrl=sheet&action=sheets');
         }else {
             $info = "Identifiants incorrects.";
             $page = "login";
@@ -93,11 +93,6 @@ class userController {
                 $_SESSION['user'] = $_POST['email'];*/
             }
         }
-    }
-
-    public function fiches() {
-        $page = "fiches";
-        require('./view/main.php');
     }
 
     public function deconnexion()
