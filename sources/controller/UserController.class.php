@@ -19,33 +19,40 @@ class userController {
     }
 
     public function doLogin() {
-        $this->user = new User();
-
-        $dologinQuery = "SELECT mail, password,admin FROM users WHERE mail = :mail and password = :password";
-
-        $req = $this->db->prepare($dologinQuery);
-        $req->execute([
-                'mail' => $_POST['mail'],
-                'password' => md5($_POST['password'])
-        ]);
-
-        while ($donnees = $req->fetch())
-        {
-            $login = $donnees['mail'];
-            $password = $donnees['password'];
-            $admin = $donnees['admin'];
-        }
-
-
-        if (isset($login) && isset($password)) {
-            $_SESSION['user'] = $login;
-            //$page="fiches";
-            header('location: index.php?ctrl=sheet&action=sheets');
-        }else {
-            $info = "Identifiants incorrects.";
+        if(empty($_POST['mail'])||empty($_POST['password'])) {
             $page = "login";
-            //header('location: index.php?ctrl=user&action=login');
+            $info = "Veuillez remplir tous les champs";
             require('./view/main.php');
+            exit();
+        }else {
+            $this->user = new User();
+
+            $dologinQuery = "SELECT mail, password,admin FROM users WHERE mail = :mail and password = :password";
+
+            $req = $this->db->prepare($dologinQuery);
+            $req->execute([
+                    'mail' => $_POST['mail'],
+                    'password' => md5($_POST['password'])
+            ]);
+
+            while ($donnees = $req->fetch())
+            {
+                $login = $donnees['mail'];
+                $password = $donnees['password'];
+                $admin = $donnees['admin'];
+            }
+
+
+            if (isset($login) && isset($password)) {
+                $_SESSION['user'] = $login;
+                //$page="fiches";
+                header('location: index.php?ctrl=sheet&action=sheets');
+            }else {
+                $info = "Identifiants incorrects.";
+                $page = "login";
+                //header('location: index.php?ctrl=user&action=login');
+                require('./view/main.php');
+            }
         }
     }
 

@@ -11,8 +11,13 @@
     if($ctrl && $action)
     {
         if($_GET['action'] == 'login' || $_GET['action'] == 'doLogin' || $_GET['action'] == 'createUser' || $_GET['action'] == 'doCreate') {
-            $ctrl = $_GET['ctrl'];
-            $action = $_GET['action'];
+            if(isset($_SESSION['user'])) {
+                $ctrl = 'sheet';
+                $action = 'sheets';
+            }else {
+                $ctrl = $_GET['ctrl'];
+                $action = $_GET['action'];
+            }
         }
         elseif(empty($_SESSION['user'])) {
             $ctrl = 'user';
