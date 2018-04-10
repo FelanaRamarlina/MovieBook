@@ -46,5 +46,7 @@
 </div>
 
 <div class="row">
-    <div class=""col-xs-6 col-sm-12""><p>Afficher les fiches ici</p></div>
+    <div class=""col-xs-6 col-sm-12"">
+        <p>Afficher les fiches ici</p>
+    </div>
 </div>

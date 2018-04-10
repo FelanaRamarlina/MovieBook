@@ -2,6 +2,7 @@
     session_start();
     ini_set("display_errors", "1");
     require_once('model/Database.php');
+
     $db = new Database();
     $db = $db->getConnexion();
 

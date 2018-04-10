@@ -9,6 +9,7 @@ class sheetController {
 
         require('model/Sheet.class.php');
         require_once('model/SheetManager.class.php');
+        $this->sheet = new Sheet();
         $this->sheetManager = new SheetManager($db1);
         $this->db = $db1 ;
     }
@@ -17,8 +18,15 @@ class sheetController {
     public function sheets() {
         $page = "sheets";
         require('./view/main.php');
+        foreach ($this->sheetManager->findAll() as $donnees) {
+            echo $donnees['title'].'<br>'.$donnees['director'].'<br>'.$donnees['date'].'<br>'.$donnees['nationality'].'<br>'.$donnees['synopsis'].'<br>'.$donnees['image'];
+        }
     }
 
+    //retourne les fiches
+    public function showSheets() {
+        return $this->sheetManager->findAll();
+    }
     /*public static function getInstance ($db) {
         if (!(self::$_instance instanceof self))
             self::$_instance = new self($db);

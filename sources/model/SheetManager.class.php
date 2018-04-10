@@ -40,11 +40,21 @@ class SheetManager{
 		
 	
 	}
-	public function findAll($col){
+	/*public function findAll($col){
 		$select = 'SELECT '.$col.' from sheets';
 		$search=$this->bdd->query($select);
 		return $search;
-	}
+	}*/
+
+    public function findAll(){
+        $select = "SELECT * from sheets";
+        $search=$this->bdd->query($select);
+        while ($donnees = $search->fetch()){
+            $sheets[] = array('title'=> $donnees['title'], 'director'=>$donnees['title'],'date'=>$donnees['date'],'nationality'=>$donnees['nationality'],'synopsis'=>$donnees['synopsis'],'image'=>$donnees['image'] );
+        }
+        return $sheets;
+    }
+
 	/*public function update($id, $col, $newValue){
 		try{
 			$query = 'UPDATE sheets SET '.$col.'="'.$newValue.'" WHERE title='.$title;

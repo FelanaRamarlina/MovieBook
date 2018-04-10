@@ -19,7 +19,8 @@ class Sheet {
 	public function update($col, $newValue){
 		$this->$col=$newValue;
 	}
-	
+
+	/*
 	public function check_if_unique(array $list_title){ // verifie si la fiche existe dejà
 		$unique=true;
 		for($i=0;$i<count($list_title); $i++){
@@ -31,7 +32,7 @@ class Sheet {
 		}
 		echo '<br/>'.$unique.'<br/>';
 		return $unique;
-	}
+	}*/
 
 	public function get_title(){
 			return $this->title;
@@ -49,13 +50,31 @@ class Sheet {
 			return $this->nationality;
 	}
 	public function get_synopsis(){
-			return $this->sysnopsis;
+			return $this->synopsis;
 	}
 	public function get_image(){
-			return $this->password;
+			return $this->image;
 	}
-	
-	public function set_id($id){
-		$this->id=$id;
-	}
+
+    public function set_title(){
+        return $this->title;
+    }
+    public function set_id(){
+        return $this->id;
+    }
+    public function set_director(){
+        return $this->director;
+    }
+    public function set_date(){
+        return $this->date;
+    }
+    public function set_nationality(){
+        return $this->nationality;
+    }
+    public function set_synopsis(){
+        return $this->synopsis;
+    }
+    public function set_image(){
+        return $this->image;
+    }
 }
