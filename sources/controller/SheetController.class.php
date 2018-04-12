@@ -6,7 +6,6 @@ class sheetController {
     private $db;
 
     public function __construct($db1) {
-
         require('model/Sheet.class.php');
         require_once('model/SheetManager.class.php');
         $this->sheet = new Sheet();
@@ -16,11 +15,9 @@ class sheetController {
 
     /*Page des fiches*/
     public function sheets() {
+        $sheets = $this->sheetManager->findAll();
         $page = "sheets";
         require('./view/main.php');
-        foreach ($this->sheetManager->findAll() as $donnees) {
-            echo $donnees['title'].'<br>'.$donnees['director'].'<br>'.$donnees['date'].'<br>'.$donnees['nationality'].'<br>'.$donnees['synopsis'].'<br>'.$donnees['image'];
-        }
     }
 
     //retourne les fiches
