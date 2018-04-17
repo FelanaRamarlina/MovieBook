@@ -27,3 +27,7 @@ Temporary Items
 
 
 # End of https://www.gitignore.io/api/macos
+.idea/modules.xml
+.idea/MovieBook.iml
+.idea/vcs.xml
+.idea/workspace.xml
