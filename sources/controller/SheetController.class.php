@@ -24,6 +24,12 @@ class sheetController {
     public function showSheets() {
         return $this->sheetManager->findAll();
     }
+
+    /*Page des fiches*/
+    public function sheet() {
+        $page = "sheet";
+        require('./view/main.php');
+    }
     /*public static function getInstance ($db) {
         if (!(self::$_instance instanceof self))
             self::$_instance = new self($db);

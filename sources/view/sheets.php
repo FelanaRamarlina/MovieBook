@@ -28,16 +28,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Musique</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Créer
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Fiche</a>
-                            <a class="dropdown-item" href="#">Livre</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Créer un book</a>
                     </li>
                 </ul>
             </div>
@@ -46,11 +44,11 @@
 </div>
 
 <div class="row">
-    <div class=""col-xs-6 col-sm-12"">
     <?php
         foreach ($sheets as $donnees) {
-        echo $donnees['title'].'<br>'.$donnees['director'].'<br>'.$donnees['date'].'<br>'.$donnees['nationality'].'<br>'.$donnees['synopsis'].'<br>'.$donnees['image'];
+            echo "<div class='divPoster col-6 col-md-3'><a href='index.php?ctrl=sheet&action=sheet'>";
+            echo '<img class="poster" src="resources/img/'.$donnees['image'].'">';
+            echo '</a></div>';
         }
     ?>
-    </div>
 </div>
