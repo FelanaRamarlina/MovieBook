@@ -160,22 +160,6 @@ ALTER TABLE `sheets_categories`
       ADD CONSTRAINT `id_sheet_category` FOREIGN KEY (`id_sheet`) REFERENCES `sheets` (`id`);
 
 
--- INSERT --
-INSERT INTO `sheets` (`title`, `director`, `date`, `nationality`, `synopsis`, `image`) VALUES
-  ('Black panther', 'Ryan Coogler', '2018-02-14', 'Américain', 'Après les événements qui se sont déroulés dans Captain America : Civil War, T’Challa revient chez lui prendre sa place sur le trône du Wakanda, une nation africaine technologiquement très avancée. Mais lorsqu’un vieil ennemi resurgit, le courage de T’Challa est mis à rude épreuve, aussi bien en tant que souverain qu’en tant que Black Panther. Il se retrouve entraîné dans un conflit qui menace non seulement le destin du Wakanda, mais celui du monde entier…', 'black-panther.jpg');
 
-INSERT INTO actors(lastname,firstname) VALUES
-  ('Jordan','Michael B.');
-
-INSERT INTO sheets_actors VALUES
-  (1,1);
-
-INSERT INTO categories(name) VALUES
-  ('Action'),
-  ('Science fiction'),
-  ('Comédie'),
-  ('Horreur'),
-  ('Guerre'),
-  ('Musique');
 
 
