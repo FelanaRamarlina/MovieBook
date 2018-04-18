@@ -15,4 +15,5 @@ Schéma: https://prnt.sc/j6y88l
 <br><br>
 OU
 <br><br>
-executer un script bash en php qui lui même executera le script python en passant l'url du dossier en paramètre
+executer un script bash en php qui lui même executera le script python en passant l'url du dossier en paramètre:<br>
+Récupération params bash en python: https://www.tutorialspoint.com/python/python_command_line_arguments.htm
