@@ -86,3 +86,15 @@ input[type="submit"] {
     margin-bottom: 10px;
 
 }
+
+/*sheets*/
+.divPoster {
+    padding: 10px;
+}
+.poster {
+    width: 100%;
+}
+
+.poster:hover{
+    padding: 10px;
+}

@@ -3,6 +3,7 @@ class sheetController {
 
     private $sheetManager;
     private $sheet;
+    private $sheets;
     private $db;
 
     public function __construct($db1) {
@@ -22,7 +23,20 @@ class sheetController {
 
     //retourne les fiches
     public function showSheets() {
-        return $this->sheetManager->findAll();
+        $this->sheets =  $this->sheetManager->findAll();
+        return $this->sheets;
+    }
+
+    //retourne les fiches
+    public function showSheetsByType($type) {
+        $this->sheets = $this->sheetManager->findByType($type);
+        return $this->sheetManager->findByType($type);
+    }
+
+    /*Page des fiches*/
+    public function sheet() {
+        $page = "sheet";
+        require('./view/main.php');
     }
     /*public static function getInstance ($db) {
         if (!(self::$_instance instanceof self))
