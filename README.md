@@ -12,3 +12,7 @@ Pour compiler le python en PHP et générer le epub:
 5. On déplace le epub généré dans un dossier *archives/epub* et on supprme le dossier généré dans temp.
 
 Schéma: https://prnt.sc/j6y88l
+<br><br>
+OU
+<br><br>
+executer un script bash en php qui lui même executera le script python en passant l'url du dossier en paramètre
