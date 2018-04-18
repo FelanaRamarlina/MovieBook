@@ -23,7 +23,7 @@ class User {
     private $format = "json";
 
     /**
-     * Actor constructor.
+     * User constructor.
      */
     public function __construct() {
         $this->handle = APIDatabase::getDatabase();
