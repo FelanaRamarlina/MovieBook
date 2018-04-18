@@ -11,7 +11,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Action</a>
+                        <a class="nav-link" onclick="">Action</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Science fiction</a>
@@ -24,6 +24,12 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Horreur</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Drame</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Thriller</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Musique</a>

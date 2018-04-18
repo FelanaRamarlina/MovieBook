@@ -5,13 +5,22 @@ INSERT INTO actors(lastname,firstname) VALUES
 INSERT INTO sheets_actors VALUES
   (1,1);
 
-INSERT INTO categories(name) VALUES
-  ('Action'),
-  ('Science fiction'),
-  ('Comédie'),
-  ('Horreur'),
-  ('Guerre'),
-  ('Musique');
+INSERT INTO `categories` (`id`, `name`) VALUES
+  (1, 'Action'),
+  (2, 'Science fiction'),
+  (3, 'Comédie'),
+  (4, 'Horreur'),
+  (5, 'Guerre'),
+  (6, 'Musique'),
+  (7, 'Drame'),
+  (8, 'Thriller');
+
+INSERT INTO `sheets_categories` (`id_sheet`, `id_category`) VALUES
+  (1, 2),
+  (3, 1),
+  (2, 2),
+  (4, 8),
+  (3, 7);
 
 /*SHEETS*/
 INSERT INTO `sheets` (`title`, `director`, `date`, `nationality`, `synopsis`, `image`) VALUES

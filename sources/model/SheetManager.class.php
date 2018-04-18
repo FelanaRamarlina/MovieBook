@@ -50,7 +50,17 @@ class SheetManager{
         $select = "SELECT * from sheets";
         $search=$this->bdd->query($select);
         while ($donnees = $search->fetch()){
-            $sheets[] = array('title'=> $donnees['title'], 'director'=>$donnees['title'],'date'=>$donnees['date'],'nationality'=>$donnees['nationality'],'synopsis'=>$donnees['synopsis'],'image'=>$donnees['image'] );
+            $sheets[] = array('title'=> $donnees['title'],'image'=>$donnees['image'] );
+        }
+        return $sheets;
+    }
+
+    public function findByType($type){
+        $select = "SELECT * FROM sheets s, categories c, sheets_categories sc 
+        WHERE s.id = sc.id_sheet AND c.id = sc.id_category AND c.name = '.$type.'";
+        $search=$this->bdd->query($select);
+        while ($donnees = $search->fetch()){
+            $sheets[] = array('title'=> $donnees['title'], $donnees['image'] );
         }
         return $sheets;
     }
