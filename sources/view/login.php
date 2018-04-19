@@ -1,7 +1,7 @@
 <div class="row">
     <div class=" title col-xs-6 col-sm-12">
         <h1>MovieBook</h1>
-        <h2>Créez votre book en ligne</h2>
+        <h2>Créez votre livre personnalisé </h2>
     </div>
     <div class=" title col-xs-6 col-sm-12"></div>
     <div class="left col-xs-6 col-sm-4">
