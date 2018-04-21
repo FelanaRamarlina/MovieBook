@@ -13,14 +13,32 @@ INSERT INTO `categories` (`id`, `name`) VALUES
   (5, 'Guerre'),
   (6, 'Musique'),
   (7, 'Drame'),
-  (8, 'Thriller');
+  (8, 'Thriller'),
+  (9, 'Policier'),
+  (10, 'Animation');
 
 INSERT INTO `sheets_categories` (`id_sheet`, `id_category`) VALUES
   (1, 2),
   (3, 1),
   (2, 2),
   (4, 8),
-  (3, 7);
+  (3, 7),
+  (5, 3),
+  (5, 1),
+  (5, 9),
+  (6, 7),
+  (6, 7),
+  (7, 3),
+  (8, 10),
+  (8, 3),
+  (8, 1),
+  (9, 3),
+  (10, 7),
+  (11, 1),
+  (11, 7),
+  (11, 8),
+  (12, 9),
+  (12, 7);
 
 /*SHEETS*/
 INSERT INTO `sheets` (`title`, `director`, `date`, `nationality`, `synopsis`, `image`) VALUES

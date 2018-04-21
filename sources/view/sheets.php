@@ -38,10 +38,13 @@
                         <a class="nav-link" href="#">Thriller</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#">Policier</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#">Musique</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"></a>
+                        <a class="nav-link" href="#">Animation</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"></a>
