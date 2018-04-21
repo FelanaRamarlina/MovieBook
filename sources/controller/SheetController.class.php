@@ -3,13 +3,13 @@ class sheetController {
 
     private $sheetManager;
     private $sheet;
-    private $sheets;
     private $db;
 
     public function __construct($db1) {
         require('model/Sheet.class.php');
         require_once('model/SheetManager.class.php');
         $this->sheet = new Sheet();
+        $this->sheets = array();
         $this->sheetManager = new SheetManager($db1);
         $this->db = $db1 ;
     }
@@ -23,17 +23,23 @@ class sheetController {
 
     //retourne les fiches
     public function showSheets() {
-        $this->sheets =  $this->sheetManager->findAll();
-        return $this->sheets;
+        $sheets = $this->sheetManager->findAll();
     }
 
-    //retourne les fiches
+    //retourne les fiches par types
     public function showSheetsByType($type) {
-        $this->sheets = $this->sheetManager->findByType($type);
-        return $this->sheetManager->findByType($type);
+        $sheets = $this->sheetManager->findByType($type);
     }
 
-    /*Page des fiches*/
+    //retourne une ou plusieurs fiches recherchées selon le nom
+    public function showSheetsByName() {
+        $name = $_POST['recherche'];
+        $sheets = $this->sheetManager->findByName($name);
+        $page = 'sheets';
+        require('./view/main.php');
+    }
+
+    //page des fiches
     public function sheet() {
         $page = "sheet";
         require('./view/main.php');

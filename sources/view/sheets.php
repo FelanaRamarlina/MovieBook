@@ -1,13 +1,19 @@
 <div class="row">
-    <div class=" col-xs-6 col-sm-12"><input class="research form-control form-control-lg" type="text" placeholder="Rechercher une fiche..."></div>
+    <div class=" col-xs-6 col-sm-12">
+        <form action="index.php?ctrl=sheet&action=showSheetsByName" method="post">
+            <input type="text" name ="recherche" id="recherche" class="research form-control form-control-lg"  placeholder="Rechercher une fiche...">
+            <input type="submit" style="display: none" />
+        </form>
+    </div>
 </div>
 <div class="row">
     <div class="menu col-xs-6 col-sm-12">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="index.php?ctrl=user&action=fiches">Accueil</a>
+            <a class="navbar-brand" href="index.php?ctrl=sheet&action=sheets">Tous</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -56,5 +62,6 @@
             echo '<img class="poster" src="resources/img/'.$donnees['image'].'">';
             echo '</a></div>';
         }
+        if(isset($info)) { echo $info;}
     ?>
 </div>
