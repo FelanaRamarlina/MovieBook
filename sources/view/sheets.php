@@ -62,6 +62,8 @@
             echo '<img class="poster" src="resources/img/'.$donnees['image'].'">';
             echo '</a></div>';
         }
-        if(isset($info)) { echo $info;}
+        if(isset($info)) {
+            echo '<div class=" col-xs-6 col-sm-12" style="">'.$info.'</div >';
+        }
     ?>
 </div>

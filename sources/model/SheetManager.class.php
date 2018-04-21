@@ -67,18 +67,12 @@ class SheetManager{
 
     public function findByName($name){
         $sheets = array();
-        $select = "SELECT * FROM sheets s, categories c, sheets_categories sc 
-        WHERE s.id = sc.id_sheet AND c.id = sc.id_category AND s.title LIKE '$name%'";
+        $select = "SELECT * FROM sheets WHERE title LIKE '$name%'";
         $search=$this->bdd->query($select);
-        if($search) {
-            while ($donnees = $search->fetch()){
+        while ($donnees = $search->fetch()){
                 $sheets[] = array('title'=> $donnees['title'], 'image'=>$donnees['image'] );
-            }
-        }else{
-           $info = 'Désolé... Aucun film ne correspond aux termes de recherche spécifiés.';
         }
         return $sheets;
-
     }
 
 	/*public function update($id, $col, $newValue){

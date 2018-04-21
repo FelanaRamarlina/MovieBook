@@ -33,10 +33,17 @@ class sheetController {
 
     //retourne une ou plusieurs fiches recherchées selon le nom
     public function showSheetsByName() {
-        $name = $_POST['recherche'];
-        $sheets = $this->sheetManager->findByName($name);
-        $page = 'sheets';
-        require('./view/main.php');
+        if(empty($_POST['recherche'])) {
+            $this->sheets();
+        }else {
+            $name = $_POST['recherche'];
+            $sheets = $this->sheetManager->findByName($name);
+            if(sizeof($sheets) == 0) {
+                $info = 'Désolé... Aucun film ne correspond aux termes de recherche spécifiés.';
+            }
+            $page = 'sheets';
+            require('./view/main.php');
+        }
     }
 
     //page des fiches
