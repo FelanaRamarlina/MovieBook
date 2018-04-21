@@ -17,6 +17,7 @@ INSERT INTO `categories` (`id`, `name`) VALUES
   (9, 'Policier'),
   (10, 'Animation');
 
+
 INSERT INTO `sheets_categories` (`id_sheet`, `id_category`) VALUES
   (1, 2),
   (3, 1),
@@ -26,7 +27,6 @@ INSERT INTO `sheets_categories` (`id_sheet`, `id_category`) VALUES
   (5, 3),
   (5, 1),
   (5, 9),
-  (6, 7),
   (6, 7),
   (7, 3),
   (8, 10),
@@ -38,7 +38,13 @@ INSERT INTO `sheets_categories` (`id_sheet`, `id_category`) VALUES
   (11, 7),
   (11, 8),
   (12, 9),
-  (12, 7);
+  (12, 7),
+  (13, 7),
+  (13, 4),
+  (2, 5),
+  (6, 6),
+  (14, 6),
+  (14, 7);
 
 /*SHEETS*/
 INSERT INTO `sheets` (`title`, `director`, `date`, `nationality`, `synopsis`, `image`) VALUES
@@ -59,5 +65,6 @@ vengeance et de destruction.','indestructibles.jpg'),
   ('Scarface','Brian De Palma','1984-03-07','Americain','En 1980, Tony "Scarface" Montana bénéficie d’une amnistie du gouvernement cubain pour retourner en Floride. Ambitieux et sans scrupules, il élabore un plan pour éliminer un caïd de la pègre et prendre la place qu’il occupait sur le marché de la drogue.','scarface.jpg'),
   ('Le Parrain','Francis Ford Coppola','1972-09-18','Americain','En 1945, à New York, les Corleone sont une des cinq familles de la mafia. Don Vito Corleone, "parrain" de cette famille, marie sa fille à un bookmaker. Sollozzo, " parrain " de la famille Tattaglia, propose à Don Vito une association dans le trafic de drogue, mais celui-ci refuse. Sonny, un de ses fils, y est quant à lui favorable.
 Afin de traiter avec Sonny, Sollozzo tente de faire tuer Don Vito, mais celui-ci en réchappe. Michael, le frère cadet de Sonny, recherche alors les commanditaires de l’attentat et tue Sollozzo et le chef de la police, en représailles.
-Michael part alors en Sicile, où il épouse Apollonia, mais celle-ci est assassinée à sa place. De retour à New York, Michael épouse Kay Adams et se prépare à devenir le successeur de son père...','thegodfather.jpg');
+Michael part alors en Sicile, où il épouse Apollonia, mais celle-ci est assassinée à sa place. De retour à New York, Michael épouse Kay Adams et se prépare à devenir le successeur de son père...','thegodfather.jpg'),
+  (14, 'Honey 4', 'Bille Woodruff', '2018-03-26', 'Américain', 'Dans le but de remporter une bourse d’études, Skyler, une aspirante danseuse, a décidé de se joindre à une troupe de danse dont fait partie sa sœur Tosha qui, elle, a reçu une formation professionnelle. Skyler s’entraîne sans arrêt dans le milieu de la danse émergente d’Atlanta où elle attire l’attention de Tyrell. Ce dernier l’aide à repousser les limites de ses mouvements sensuels et ses aptitudes en affrontement hip-hop afin de lui permettre de réaliser ses rêves. ', 'honey4.jpg');
 
