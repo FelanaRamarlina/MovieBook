@@ -55,9 +55,9 @@ class SheetManager{
         return $sheets;
     }
 
-    public function findByType($type){
+    public function findByCategory($category){
         $select = "SELECT * FROM sheets s, categories c, sheets_categories sc 
-        WHERE s.id = sc.id_sheet AND c.id = sc.id_category AND c.name = '$type'";
+        WHERE s.id = sc.id_sheet AND c.id = sc.id_category AND c.name = '$category'";
         $search=$this->bdd->query($select);
         while ($donnees = $search->fetch()){
             $sheets[] = array('title'=> $donnees['title'], 'image'=>$donnees['image'] );

@@ -22,18 +22,18 @@ class sheetController {
         require('./view/main.php');
     }
 
-    //retourne les fiches
-    public function showSheets() {
-        $sheets = $this->sheetManager->findAll();
-    }
-
     //retourne les fiches par types
-    public function showSheetsByType($type) {
-        $sheets = $this->sheetManager->findByType($type);
+    public function showSheetsByCategory() {
+        $categories = $this->sheetManager->findCategories();
+        $category = $_GET['category'];
+        $sheets = $this->sheetManager->findByCategory($category);
+        $page = "sheets";
+        require('./view/main.php');
     }
 
     //retourne une ou plusieurs fiches recherchées selon le nom
     public function showSheetsByName() {
+        $categories = $this->sheetManager->findCategories();
         if(empty($_POST['recherche'])) {
             $this->sheets();
         }else {

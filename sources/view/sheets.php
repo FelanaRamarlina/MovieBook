@@ -18,7 +18,7 @@
                 <ul class="navbar-nav">
                     <?php
                     foreach ($categories as $donnees) {
-                        echo "<li class=\"nav-item\"><a class=\"nav-link\" onclick=\"\">";
+                        echo "<li class=\"nav-item\"><a class=\"nav-link\" href=\"index.php?ctrl=sheet&action=showSheetsByCategory&category=".$donnees['name']."\">";
                                 echo $donnees['name'];
                                 echo '</a></li>';
                     }
