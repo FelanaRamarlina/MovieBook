@@ -16,39 +16,13 @@
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" onclick="">Action</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Science fiction</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Comédie</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Guerre</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Horreur</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Drame</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Thriller</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Policier</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Musique</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Animation</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"></a>
-                    </li>
+                    <?php
+                    foreach ($categories as $donnees) {
+                        echo "<li class=\"nav-item\"><a class=\"nav-link\" onclick=\"\">";
+                                echo $donnees['name'];
+                                echo '</a></li>';
+                    }
+                    ?>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Créer un book</a>
                     </li>

@@ -75,6 +75,16 @@ class SheetManager{
         return $sheets;
     }
 
+    public function findCategories(){
+        $categories = array();
+        $select = "SELECT * FROM categories";
+        $search=$this->bdd->query($select);
+        while ($donnees = $search->fetch()){
+            $categories[] = array('name' => $donnees['name']);
+        }
+        return $categories;
+    }
+
 	/*public function update($id, $col, $newValue){
 		try{
 			$query = 'UPDATE sheets SET '.$col.'="'.$newValue.'" WHERE title='.$title;

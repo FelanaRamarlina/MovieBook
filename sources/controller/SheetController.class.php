@@ -17,6 +17,7 @@ class sheetController {
     /*Page des fiches*/
     public function sheets() {
         $sheets = $this->sheetManager->findAll();
+        $categories = $this->sheetManager->findCategories();
         $page = "sheets";
         require('./view/main.php');
     }
@@ -46,7 +47,7 @@ class sheetController {
         }
     }
 
-    //page des fiches
+    //page d'une fiches
     public function sheet() {
         $page = "sheet";
         require('./view/main.php');
