@@ -47,11 +47,15 @@ class sheetController {
         }
     }
 
-    //page d'une fiches
+    //page d'une fiche
     public function sheet() {
+        $title = $_GET['title'];
+        $sheet = $this->sheetManager->findSheet($title);
+        $categories = $this->sheetManager->findCategoriesOfSheet($title);
         $page = "sheet";
         require('./view/main.php');
     }
+
     /*public static function getInstance ($db) {
         if (!(self::$_instance instanceof self))
             self::$_instance = new self($db);

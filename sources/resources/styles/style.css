@@ -98,3 +98,27 @@ input[type="submit"] {
 .poster:hover{
     padding: 10px;
 }
+
+/*sheet*/
+.sheet {
+    padding-bottom: 50px;
+}
+.sheet .title {
+    text-align: center;
+    padding-bottom: 50px;
+    font-weight: bold;
+}
+
+.sheet img {
+    width: 100%;
+}
+
+.synopsis {
+    padding-top: 50px;
+}
+.abstract {
+    padding-bottom: 50px;
+}
+.return {
+    font-size: 20px;
+}

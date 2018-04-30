@@ -35,7 +35,7 @@
 <div class="row">
     <?php
         foreach ($sheets as $donnees) {
-            echo "<div class='divPoster col-6 col-md-3'><a href='index.php?ctrl=sheet&action=sheet'>";
+            echo "<div class='divPoster col-6 col-md-3'><a href='index.php?ctrl=sheet&action=sheet&title=".$donnees['title']."'>";
             echo '<img class="poster" src="resources/img/'.$donnees['image'].'">';
             echo '</a></div>';
         }

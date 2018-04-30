@@ -75,9 +75,29 @@ class SheetManager{
         return $sheets;
     }
 
+    public function findSheet($title){
+        $sheets = array();
+        $select = "SELECT * FROM sheets WHERE title = '$title'";
+        $search=$this->bdd->query($select);
+        while ($donnees = $search->fetch()){
+            $sheet[] = array('title'=> $donnees['title'], 'image'=>$donnees['image'], 'date'=>$donnees['date'],'director'=>$donnees['director'],'nationality'=>$donnees['nationality'], 'synopsis'=>$donnees['synopsis']   );
+        }
+        return $sheet;
+    }
+
     public function findCategories(){
         $categories = array();
         $select = "SELECT * FROM categories";
+        $search=$this->bdd->query($select);
+        while ($donnees = $search->fetch()){
+            $categories[] = array('name' => $donnees['name']);
+        }
+        return $categories;
+    }
+
+    public function findCategoriesOfSheet($title){
+        $categories = array();
+        $select = "SELECT name FROM categories cat, sheets s, sheets_categories sc WHERE s.title = '$title' AND cat.id = sc.id_category AND s.id = sc.id_sheet";
         $search=$this->bdd->query($select);
         while ($donnees = $search->fetch()){
             $categories[] = array('name' => $donnees['name']);
