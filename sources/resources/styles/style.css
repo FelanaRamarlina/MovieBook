@@ -6,6 +6,12 @@ body {
     margin-top: 10px;
     padding: 10px;
 }
+.mon-book{
+    color:#ab4b54;
+}
+.mon-book:hover{
+    border:1px solid #ab4b54;
+}
 
 .inscription{
     color:#28a745;
