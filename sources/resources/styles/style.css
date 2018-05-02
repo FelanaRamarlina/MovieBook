@@ -128,3 +128,13 @@ input[type="submit"] {
 .return {
     font-size: 20px;
 }
+
+/** Création du book **/
+
+.book-title {
+    text-align: center;
+}
+
+#bookApp {
+    margin-top: 20px;
+}
