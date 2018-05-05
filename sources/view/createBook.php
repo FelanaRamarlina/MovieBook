@@ -7,7 +7,7 @@
                     <p v-show="draftHint">Cliquez sur "Ajouter" pour commencer à créer votre book.</p>
                     <div v-for="element in draft" :id="element.id">
                         <p>{{ element.title }}</p>
-                        <img :src="`resources/img/${element.image}`">
+                        <img :src="`resources/img/${element.image}`" class="tile-img">
                     </div>
                 </div>
             </div>
