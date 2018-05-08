@@ -37,6 +37,22 @@ var app = new Vue({
             const id = event.target.parentElement.id;
             this.draft.push(this.sheets[parseInt(id)]);
             this.draftHint = false;
-        }
+        },
+        resetDraft: function() {
+            this.draft = [];
+            this.draftHint = !this.draftHint;
+        },
+        createPDF: function (event) {
+            var docDefinition = {
+                header: document.getElementById("bookTitle").value,
+                content: 'test',
+
+                style: {
+
+                }
+            }
+
+            pdfMake.createPdf(docDefinition).download();
+       }
     }
 });

@@ -131,7 +131,7 @@ input[type="submit"] {
 
 /** Création du book **/
 
-.book-title {
+.hint-title {
     text-align: center;
 }
 
@@ -167,8 +167,60 @@ input[type="submit"] {
 }
 
 .btn-add-draft {
+    color: white;
+    border: none;
     width: 100%;
     box-shadow: none;
-
+    background-color: #f44141;
 }
 
+.title-container {
+    text-align: center;
+    padding-bottom: 25px;
+    background-color: #f44141;
+    width: 100%;
+}
+
+.book-custom-title {
+    border: none;
+    text-align: center;
+    color: white;
+    background-color: #f44141;
+}
+
+.book-img {
+    width: 40%;
+}
+
+.book-row {
+    padding: 10px;
+}
+
+.book-infos {
+    display: flex;
+}
+
+.book-infos>* {
+    display: block;
+}
+
+.book-synopsis {
+    margin-top: 25px;
+}
+
+.list-infos {
+    list-style-type: none;
+}
+
+.control-buttons {
+    border: none;
+    color: white;
+}
+
+#control-button-reset {
+    background-color: #f44141;
+}
+
+#control-button-send {
+    background-color: green;
+}

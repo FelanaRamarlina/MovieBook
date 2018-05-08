@@ -1,20 +1,36 @@
 <div class="row" id="bookApp">
     <div class="col-md-6">
-        <p class="book-title">Brouillon</p>
+        <p class="hint-title">Brouillon</p>
         <div class="row">
             <div class="col-md-12 px-2 py-2">
-                <div class="mv-shadow px-2 py-2">
+                <div class="mv-shadow px-2 py-4" v-show="!draftHint">
+                    <button id="control-button-send" class="control-buttons" v-on:click="createPDF">Créer le PDF</button>
+                    <button id="control-button-reset" class="control-buttons" v-on:click="resetDraft">Réinitialiser</button>
+                </div>
+                <div class="mv-shadow mt-3" id="book-container">
                     <p v-show="draftHint">Cliquez sur "Ajouter" pour commencer à créer votre book.</p>
-                    <div v-for="element in draft" :id="element.id">
-                        <p>{{ element.title }}</p>
-                        <img :src="`resources/img/${element.image}`" class="tile-img">
+                    <div class="title-container">
+                        <input v-show="!draftHint" type="text" placeholder="titre du book" class="book-custom-title" id="bookTitle">
+                    </div>
+                    <div v-for="element in draft" :id=`sheet-id-${element.id}` class="book-row">
+
+                        <div class="book-infos">
+                            <img :src="`resources/img/${element.image}`" class="book-img">
+                            <ul class="list-infos">
+                                <li><p><b>{{ element.title }}</b></p></li>
+                                <li><p>Date de sortie: {{ element.date }}</p></li>
+                                <li><p>Nationalité: {{ element.nationality }}</p></li>
+                            </ul>
+                        </div>
+                        <p class="book-synopsis">{{ element.synopsis }}</p>
+                        <hr>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-md-6">
-        <p class="book-title">Liste des fiches</p>
+        <p class="hint-title">Liste des fiches</p>
         <div class="row">
             <div v-for="sheet in sheets" class="col-md-6 px-2 py-2" >
                 <div class="mv-shadow px-2 py-2" :id="sheet.id">
