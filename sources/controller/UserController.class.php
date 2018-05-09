@@ -115,6 +115,11 @@ class userController {
         }
     }
 
+    public function profil() {
+        $page = 'profil';
+        require('./view/main.php');
+    }
+
     public function deconnexion()
     {
         session_destroy();
