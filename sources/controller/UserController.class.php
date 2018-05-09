@@ -116,6 +116,7 @@ class userController {
     }
 
     public function profil() {
+        $user = $this->userManager->findOneByMail($_SESSION['user']);
         $page = 'profil';
         require('./view/main.php');
     }

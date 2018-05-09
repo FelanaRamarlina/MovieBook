@@ -89,6 +89,16 @@ class UserManager {
         );
     }
 
+    public function findOneByMail($mail) {
+        $user = array();
+        $select = "SELECT * FROM users WHERE mail = '$mail'";
+        $search=$this->db->query($select);
+        while ($donnees = $search->fetch()){
+            $user[] = array('lastname'=> $donnees['lastname'], 'firstname'=>$donnees['firstname'], 'mail'=>$donnees['mail']);
+        }
+        return $user;
+    }
+
     public function findAll() {
         $usersArray = array();
 
