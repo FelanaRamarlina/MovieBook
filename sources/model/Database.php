@@ -2,8 +2,8 @@
 class Database {
 
     private $user = "root";
-    private $pass = "root"; // Mac
-    //private $pass = "mysql"; // Windows
+    //private $pass = "root"; // Mac
+    private $pass = "mysql"; // Windows
 
     public function getConnexion() {
         try {

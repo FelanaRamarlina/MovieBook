@@ -26,6 +26,17 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Créer un book</a>
                     </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="index.php?ctrl=sheet&action=create">Ajouter une fiche</a>
+                    </li>
+
+                    <style>
+                     li.nav-item:nth-child(11) {
+
+                         margin-right:1px;
+                         border-left:1px solid lightgray;
+
+                    </style>
                 </ul>
             </div>
         </nav>
