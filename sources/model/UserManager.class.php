@@ -47,22 +47,22 @@ class UserManager {
         $lastname = $user->getLastName();
 
         $req = "UPDATE users SET
-                mail = '.$mail.',
-                password = '.$password.',
-                firstName = '.$firstname.',
-                lastName = '.$lastname.'
-                WHERE mail = '.$mail.'
+                mail = '$mail',
+                password = '$password',
+                firstName = '$firstname',
+                lastName = '$lastname'
+                WHERE mail = '".$_SESSION['user']."'
         ";
-/*
-        $ex = query($req);
+
+        $ex = $this->db->query($req);
 
         if($ex) {
             $update = true;
+            $_SESSION['user'] = $mail;
         }else {
             $update = false;
         }
-        $req->closeCursor();
-        return $update;*/
+        return $update;
 
 
     }

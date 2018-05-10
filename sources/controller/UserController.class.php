@@ -140,6 +140,7 @@ class userController {
             $this->user->setEmail($mail);
 
             $update = $this->userManager->update($this->user);
+            $user = $this->userManager->findOneByMail($_SESSION['user']);
             if($update == true ) {
                 $info = "Vos modifications ont bien enregistrés";
             }else {
