@@ -33,3 +33,5 @@ Temporary Items
 .idea/workspace.xml
 .idea/dataSources.xml
 .idea/dataSources.local.xml
+
+sources/resources/books

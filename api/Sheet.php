@@ -1,6 +1,7 @@
 <?php
 ini_set("display_errors", "1");
 require "APIDatabase.php";
+ header('Access-Control-Allow-Origin: *');  
 
 /**
  * Paramètres:
@@ -86,17 +87,17 @@ class Sheet {
         if(isset($_GET['director'])) {
             $this->query .= " AND director = '".$_GET['director']."'";
         }
-        
+
         if(isset($_GET['date'])) {
             $this->query .= " AND date = '".$_GET['date']."'";
         }
-        
-        
+
+
         if(isset($_GET['nationality'])) {
             $this->query .= " AND nationality = '".$_GET['nationality']."'";
         }
-        
-        
+
+
         if(isset($_GET['synopsis'])) {
             $this->query .= " AND synopsis = '".$_GET['synopsis']."'";
         }

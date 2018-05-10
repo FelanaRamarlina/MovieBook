@@ -24,6 +24,17 @@ SET time_zone = "+00:00";
 -- Structure de la table `actors`
 --
 
+CREATE TABLE `book` (
+  "id" VARCHAR(255),
+  "name" VARCHAR(255),
+  "create_at" DATETIME
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `sheets_book` (
+  "id_sheet" INT,
+  "id_book" VARCHAR(255)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `actors` (
   `id` int(11) NOT NULL,
   `lastname` varchar(100) NOT NULL,
