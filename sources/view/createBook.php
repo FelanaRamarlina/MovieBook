@@ -7,8 +7,8 @@
                     <button id="control-button-send" class="control-buttons" v-on:click="createPDF">Créer le PDF</button>
                     <button id="control-button-reset" class="control-buttons" v-on:click="resetDraft">Réinitialiser</button>
                 </div>
+                <p v-show="draftHint">Cliquez sur "Ajouter" pour commencer à créer votre book.</p>
                 <div class="mv-shadow mt-3" id="book-container">
-                    <p v-show="draftHint">Cliquez sur "Ajouter" pour commencer à créer votre book.</p>
                     <div class="title-container">
                         <input v-show="!draftHint" type="text" placeholder="titre du book" class="book-custom-title" id="bookTitle">
                     </div>
@@ -31,6 +31,11 @@
     </div>
     <div class="col-md-6">
         <p class="hint-title">Liste des fiches</p>
+        <div class="row">
+            <div class="col-md-12 px-2 py-2 sheet-search">
+                <input type="text" placeholder="Rechercher une fiche" v-on:keyup="searchSheet">
+            </div>
+        </div>
         <div class="row">
             <div v-for="sheet in sheets" class="col-md-6 px-2 py-2" >
                 <div class="mv-shadow px-2 py-2" :id="sheet.id">

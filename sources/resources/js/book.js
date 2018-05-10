@@ -2,6 +2,7 @@ var app = new Vue({
    el: "#bookApp",
    data: {
        sheets: [],
+       sheetsSearched: [],
        draft: [],
        draftHint: true,
        bookTitle: ""
@@ -35,7 +36,12 @@ var app = new Vue({
         },
         addToDraft: function (event) {
             const id = event.target.parentElement.id;
-            this.draft.push(this.sheets[parseInt(id)]);
+            for(let i = 0; i < this.sheets.length; i++) {
+                if(this.sheets[i].id == id) {
+                    this.draft.push(this.sheets[i]);
+                }
+            }
+            // this.draft.push(this.sheets[parseInt(id)]);
             this.draftHint = false;
         },
         resetDraft: function() {
@@ -47,7 +53,6 @@ var app = new Vue({
             let arrayToSend = [];
             arrayToSend.push(this.draft);
             arrayToSend.push({bookTitle: document.getElementById("bookTitle").value});
-            console.log(arrayToSend);
             fetch('http://localhost/MovieBook/api/addBook.php', {
                 method: 'POST',
                 headers: {
@@ -55,8 +60,22 @@ var app = new Vue({
                 },
                 body: JSON.stringify(arrayToSend)
             }).then(function(response) {
-
+                console.log(response);
             })
-        }
+        },
+        searchSheet: function (event) {
+           if(this.sheetsSearched.length > 0)
+               this.sheets = [this.sheetsSearched, this.sheetsSearched = this.sheets][0];
+
+           this.sheetsSearched = [];
+            console.log(event.target.value);
+            for(let i = 0; i < this.sheets.length; i++) {
+                if(this.sheets[i].title.includes(event.target.value)) {
+                    this.sheetsSearched.push(this.sheets[i]);
+                }
+            }
+
+            this.sheets = [this.sheetsSearched, this.sheetsSearched = this.sheets][0];
+        },
     }
 });

@@ -17,7 +17,8 @@
     <a class="navbar-brand" href="index.php">Logo</a>
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
         <li class="nav-item"><a class="nav-link" href="index.php?ctrl=sheet&action=sheets">Fiches</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.php?ctrl=book&action=present">Mon Book</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.php?ctrl=book&action=present">Créer un Book</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.php?ctrl=book&action=present">Les Books</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Profil</a></li>
         <li class="nav-item"><a class="nav-link" href="index.php?ctrl=user&action=deconnexion">Déconnexion</a></li>
     </ul>

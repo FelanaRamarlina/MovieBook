@@ -225,3 +225,8 @@ input[type="submit"] {
 #control-button-send {
     background-color: green;
 }
+
+.sheet-search>input {
+    width: 100%;
+    padding: 5px;
+}
