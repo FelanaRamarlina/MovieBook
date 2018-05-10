@@ -157,7 +157,8 @@ input[type="submit"] {
 }
 
 .tile-img {
-    width: 60%;
+    width: 200px;
+    height: 300px;
     margin: auto;
     display: block;
 }

@@ -15,7 +15,7 @@
                     <div v-for="element in draft" :id=`sheet-id-${element.id}` class="book-row">
 
                         <div class="book-infos">
-                            <img :src="`resources/img/${element.image}`" class="book-img">
+                            <img :src="`resources/img/${element.image}`" class="book-img" id="img1">
                             <ul class="list-infos">
                                 <li><p><b>{{ element.title }}</b></p></li>
                                 <li><p>Date de sortie: {{ element.date }}</p></li>

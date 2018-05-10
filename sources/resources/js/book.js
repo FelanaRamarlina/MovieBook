@@ -43,16 +43,20 @@ var app = new Vue({
             this.draftHint = !this.draftHint;
         },
         createPDF: function (event) {
-            var docDefinition = {
-                header: document.getElementById("bookTitle").value,
-                content: 'test',
+            // Requete http à l'api
+            let arrayToSend = [];
+            arrayToSend.push(this.draft);
+            arrayToSend.push({bookTitle: document.getElementById("bookTitle").value});
+            console.log(arrayToSend);
+            fetch('http://localhost/MovieBook/api/addBook.php', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json'
+                },
+                body: JSON.stringify(arrayToSend)
+            }).then(function(response) {
 
-                style: {
-
-                }
-            }
-
-            pdfMake.createPdf(docDefinition).download();
-       }
+            })
+        }
     }
 });
