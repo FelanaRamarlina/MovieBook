@@ -1,5 +1,5 @@
 <div id="notification" style="display: none">
-    <p>Votre PDF à bien été créer. Vous pouvez le consulter ici:</p>
+    <p>Votre PDF à bien été créé. Vous pouvez le consulter ici:</p>
     <p><a id="linkToPdf" target="_blank">{{ bookTitle }}</a></p>
     <span v-on:click="dismissNotification">X</span>
 </div>
