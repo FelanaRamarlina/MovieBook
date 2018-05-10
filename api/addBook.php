@@ -96,6 +96,6 @@ $pdf->addDatabase();
 echo json_encode(array(
    "message_status" => "book added",
    "validate" => 1,
-    "url_book" => "MovieBook/sources/resources/books/book_".$build_date.".pdf"
+    "url_book" => "resources/books/book_".$build_date.".pdf"
 ));
 ?>

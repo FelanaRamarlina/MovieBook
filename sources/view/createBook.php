@@ -1,4 +1,9 @@
-<div class="row" id="bookApp">
+<div id="notification" style="display: none">
+    <p>Votre PDF à bien été créer. Vous pouvez le consulter ici:</p>
+    <p><a id="linkToPdf" target="_blank">{{ bookTitle }}</a></p>
+    <span v-on:click="dismissNotification">X</span>
+</div>
+<div class="row">
     <div class="col-md-6">
         <p class="hint-title">Brouillon</p>
         <div class="row">
@@ -10,7 +15,7 @@
                 <p v-show="draftHint">Cliquez sur "Ajouter" pour commencer à créer votre book.</p>
                 <div class="mv-shadow mt-3" id="book-container">
                     <div class="title-container">
-                        <input v-show="!draftHint" type="text" placeholder="titre du book" class="book-custom-title" id="bookTitle">
+                        <input v-show="!draftHint" type="text" placeholder="titre du book" class="book-custom-title" id="bookTitle" v-on:keyup="changeTitle">
                     </div>
                     <div v-for="element in draft" :id=`sheet-id-${element.id}` class="book-row">
 

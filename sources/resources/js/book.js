@@ -5,7 +5,9 @@ var app = new Vue({
        sheetsSearched: [],
        draft: [],
        draftHint: true,
-       bookTitle: ""
+       bookTitle: "",
+       notif: false,
+       urlBook: ""
    },
     created: function() {
         fetch('http://localhost/MovieBook/api/Sheet.php', {
@@ -27,6 +29,12 @@ var app = new Vue({
         });
     },
     methods: {
+        dismissNotification: function() {
+            document.getElementById('notification').style.display = "none";
+        },
+       changeTitle: function (event) {
+           this.bookTitle = event.target.value;
+       },
        display: function(event) {
            console.log(this.sheets);
        },
@@ -50,9 +58,11 @@ var app = new Vue({
         },
         createPDF: function (event) {
             // Requete http à l'api
+            if(this.bookTitle == "") { this.bookTitle = "Titre du book";}
+
             let arrayToSend = [];
             arrayToSend.push(this.draft);
-            arrayToSend.push({bookTitle: document.getElementById("bookTitle").value});
+            arrayToSend.push({bookTitle: this.bookTitle});
             fetch('http://localhost/MovieBook/api/addBook.php', {
                 method: 'POST',
                 headers: {
@@ -60,7 +70,12 @@ var app = new Vue({
                 },
                 body: JSON.stringify(arrayToSend)
             }).then(function(response) {
-                console.log(response);
+                response.json().then(function (data) {
+                    console.log(data);
+                    document.getElementById('notification').style.display = "block";
+                    this.urlBook = data.url_book;
+                    document.getElementById('linkToPdf').href = this.urlBook;
+                })
             })
         },
         searchSheet: function (event) {

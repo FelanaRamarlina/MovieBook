@@ -230,3 +230,25 @@ input[type="submit"] {
     width: 100%;
     padding: 5px;
 }
+
+#notification {
+    position:fixed;
+    height: 100px;
+    left: 0;
+    z-index: 105;
+    top:0px;
+    width:inherit;
+    text-align:center;
+    font-weight:normal;
+    font-size:14px;
+    font-weight:bold;
+    color:white;
+    background-color:#FF7800;
+    padding:5px;
+}
+#notification>span {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top:10px;
+}
