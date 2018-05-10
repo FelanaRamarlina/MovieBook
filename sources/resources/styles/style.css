@@ -128,3 +128,33 @@ input[type="submit"] {
 .return {
     font-size: 20px;
 }
+
+/*profil*/
+.contentData {
+    border-top: 1px solid #bfbdbd;
+    border-bottom: 1px solid #bfbdbd;
+}
+
+.dataTitle {
+    font-weight: bold;
+}
+
+.contentDate .name {
+    border:none;
+}
+
+.name{
+    outline: none;
+    width:40%;
+
+}
+.mail {
+    width:81%;
+}
+
+.saveChanges {
+    float: right;
+    color:#a54bc1;
+    border:1px solid #a54bc1;
+
+}
