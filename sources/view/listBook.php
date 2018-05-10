@@ -5,8 +5,13 @@
 
         <ul>
             <?php
-            foreach ($books as $book) {
-                echo "<li><a href='./resources/books/book_".$book['id'].".pdf'>".$book['name']."</a> - ".$book['created_at']."</li>";
+            if(count($books) == 0) {
+                echo "<p>Aucun boo, pour le moment</p>";
+            }
+            else {
+                foreach ($books as $book) {
+                    echo "<li><a href='./resources/books/book_".$book['id'].".pdf'>".$book['name']."</a> - ".$book['created_at']."</li>";
+                }
             }
             ?>
         </ul>
