@@ -1,5 +1,6 @@
 <?php
 require('../sources/lib/fpdf/fpdf.php');
+require('APIDatabase.php');
 
 class PDF extends FPDF {
 
@@ -63,6 +64,25 @@ class PDF extends FPDF {
         $this->Ln(5);
         $this->Cell(0, 1, "", 0, 1, "C", true);
     }
+
+    public function addDatabase() {
+        $idBook = strtotime('now');
+        $db = APIDatabase::getDatabase();
+        $request = $db->prepare("INSERT INTO book VALUES(:idbook, :name, :date)");
+        $request->execute(array(
+            "idbook" => $idBook,
+            "name" => $this->title,
+            "date" => date('Y-m-d H:i:s')
+        ));
+
+        foreach ($this->sheets as $sheet) {
+            $req = $db->prepare("INSERT INTO sheets_book VALUES(:idsheet, :idbook)");
+            $req->execute(array(
+                "idsheet" => $sheet['id'],
+                "idbook" => $idBook
+            ));
+        }
+    }
 }
 
 $pdf = new PDF();
@@ -71,6 +91,7 @@ $pdf->build();
 $build_date = strtotime('now');
 
 $pdf->Output("F", "../sources/resources/books/book_".$build_date.".pdf", true);
+$pdf->addDatabase();
 
 echo json_encode(array(
    "message_status" => "book added",
