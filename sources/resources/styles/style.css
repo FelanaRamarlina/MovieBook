@@ -252,3 +252,33 @@ input[type="submit"] {
     right: 20px;
     top:10px;
 }
+
+/*profil*/
+.contentData {
+    border-top: 1px solid #bfbdbd;
+    border-bottom: 1px solid #bfbdbd;
+}
+
+.dataTitle {
+    font-weight: bold;
+}
+
+.contentDate .name {
+    border:none;
+}
+
+.name{
+    outline: none;
+    width:40%;
+
+}
+.mail {
+    width:81%;
+}
+
+.saveChanges {
+    float: right;
+    color:#28a745;;
+    border:1px solid #28a745;
+
+}

@@ -39,32 +39,31 @@ class UserManager {
         }
     }
 
-    public function update($user) {
-        $req = $this->db->prepare("SELECT * FROM users WHERE id = :id LIMIT 1");
-        $req->execute(array("id" => $user->getId()));
-        $res = $req->fetch();
-        $req->closeCursor();
 
-        if(empty($res)) {
-            echo "Cet utilisateur n'existe pas (pas d'id correspondant)";
+    public function update($user) {
+        $mail = $user->getEmail();
+        $password = $user->getPassword();
+        $firstname = $user->getFirstName();
+        $lastname = $user->getLastName();
+
+        $req = "UPDATE users SET
+                mail = '$mail',
+                password = '$password',
+                firstName = '$firstname',
+                lastName = '$lastname'
+                WHERE mail = '".$_SESSION['user']."'
+        ";
+
+        $ex = $this->db->query($req);
+
+        if($ex) {
+            $update = true;
+            $_SESSION['user'] = $mail;
+        }else {
+            $update = false;
         }
-        else {
-            $req = $this->db->prepare("UPDATE users SET
-                email = :email,
-                password = :password,
-                firstName = :firstName,
-                lastName = :lastName,
-                admin = :admin
-            ");
-            $req->execute(array(
-                "email" => $user->getEmail(),
-                "password" => $user->getPassword(),
-                "firstName" => $user->getFirstName(),
-                "lastName" => $user->getLastName(),
-                "admin" => $user->getAdmin()
-            ));
-            $req->closeCursor();
-        }
+        return $update;
+
 
     }
 
@@ -89,6 +88,16 @@ class UserManager {
         );
     }
 
+    public function findOneByMail($mail) {
+        $user = array();
+        $select = "SELECT * FROM users WHERE mail = '$mail'";
+        $search=$this->db->query($select);
+        while ($donnees = $search->fetch()){
+            $user[] = array('lastname'=> $donnees['lastname'], 'firstname'=>$donnees['firstname'], 'mail'=>$donnees['mail']);
+        }
+        return $user;
+    }
+
     public function findAll() {
         $usersArray = array();
 
@@ -108,5 +117,9 @@ class UserManager {
         }
         return $usersArray;
     }
+
+
 }
 ?>
+
+}

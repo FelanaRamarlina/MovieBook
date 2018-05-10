@@ -8,6 +8,7 @@ class userController {
     public function __construct($db1) {
         require('model/User.class.php');
         require_once('model/UserManager.class.php');
+        $this->user = new User;
         $this->userManager = new UserManager($db1);
         $this->db = $db1 ;
     }
@@ -107,12 +108,48 @@ class userController {
                         "password" => md5($_POST['password']),
                         "admin" => false
                     ));
-                    var_dump($ex);
                     /* $page = "default";
                      $_SESSION['user'] = $_POST['email'];*/
                 }
             }
         }
+    }
+
+   public function profil() {
+        $user = $this->userManager->findOneByMail($_SESSION['user']);
+        $page = 'profil';
+        require('./view/main.php');
+    }
+
+    public function doUpdate() {
+        if (empty($_POST['firstname']) || empty($_POST['lastname']) || empty($_POST['mail']) || empty($_POST['password']) || empty($_POST['password2'])) {
+            $user = $this->userManager->findOneByMail($_SESSION['user']);
+            $info = "Veuillez remplir tous les champs";
+        } else if($_POST['password'] != $_POST['password2']) {
+            $user = $this->userManager->findOneByMail($_SESSION['user']);
+            $info = "Les mots de passe ne sont pas identiques";
+        }else{
+            $firstname = $_POST['firstname'];
+            $lastname = $_POST['lastname'];
+            $mail = $_POST['mail'];
+            $password = md5($_POST['password']);
+
+            $this->user->setFirstName($firstname);
+            $this->user->setLastName($lastname);
+            $this->user->setPassword($password);
+            $this->user->setEmail($mail);
+
+            $update = $this->userManager->update($this->user);
+            $user = $this->userManager->findOneByMail($_SESSION['user']);
+            if($update == true ) {
+                $info = "Vos modifications ont bien enregistrés";
+            }else {
+                $info = "Erreur SQL";
+            }
+        }
+        $page = "profil";
+        require('./view/main.php');
+
     }
 
     public function deconnexion()
