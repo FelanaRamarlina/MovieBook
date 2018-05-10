@@ -10,12 +10,18 @@ class bookController {
         require_once('model/BookManager.class.php');
         $this->book = new Book();
         $this->book = array();
-        $this->BookManager = new BookManager($db1);
+        $this->bookManager = new BookManager($db1);
         $this->db = $db1 ;
     }
 
     public function present() {
         $page = "createBook";
+        require('./view/main.php');
+    }
+
+    public function listBooks() {
+        $books = $this->bookManager->findAll();
+        $page = "listBook";
         require('./view/main.php');
     }
 }
