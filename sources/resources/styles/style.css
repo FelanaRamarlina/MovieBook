@@ -8,7 +8,8 @@ body {
 }
 
 .navbar-brand>img{
-    height: 90px !important;
+    height: 60px !important;
+    padding-left: 15px;
 }
 .mon-book{
     color:#ab4b54;
