@@ -6,7 +6,7 @@
         <ul>
             <?php
             if(count($books) == 0) {
-                echo "<p>Aucun boo, pour le moment</p>";
+                echo "<p>Aucun book pour le moment</p>";
             }
             else {
                 foreach ($books as $book) {

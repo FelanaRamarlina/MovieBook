@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `book` (
   `id` VARCHAR(255),
   `name` VARCHAR(255),
-  `create_at` DATETIME
+  `created_at` DATETIME
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `sheets_book` (
