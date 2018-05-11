@@ -10,7 +10,7 @@ var app = new Vue({
        urlBook: ""
    },
     created: function() {
-        fetch('http://localhost/MovieBook/api/Sheet.php', {
+        fetch('http://localhost:8888/git/MovieBook/api/Sheet.php', {
                 method: 'GET',
                 headers: {
                     Accept: 'application/json',
@@ -63,7 +63,7 @@ var app = new Vue({
             let arrayToSend = [];
             arrayToSend.push(this.draft);
             arrayToSend.push({bookTitle: this.bookTitle});
-            fetch('http://localhost/MovieBook/api/addBook.php', {
+            fetch('http://localhost:8888/git/MovieBook/api/addBook.php', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json'
