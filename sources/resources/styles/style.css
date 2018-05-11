@@ -6,6 +6,10 @@ body {
     margin-top: 10px;
     padding: 10px;
 }
+
+.navbar-brand>img{
+    height: 90px !important;
+}
 .mon-book{
     color:#ab4b54;
 }
@@ -283,3 +287,5 @@ input[type="submit"] {
     border:1px solid #28a745;
 
 }
+
+
