@@ -190,7 +190,8 @@ input[type="submit"] {
 }
 
 .book-img {
-    width: 40%;
+    width: 200px;
+    height: 300px;
 }
 
 .book-row {
