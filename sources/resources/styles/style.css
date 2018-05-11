@@ -289,3 +289,22 @@ input[type="submit"] {
     border:1px solid #28a745;
 
 }
+
+.logo {
+    margin-bottom: 0;
+    margin-left: 7.3%;
+    height: 530px;
+}
+
+.form1: {
+/*
+    border: none;
+    text-decoration: none;
+        margin-top: 20px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    border-radius: 0px !important;
+    box-shadow: none;
+*/
+}

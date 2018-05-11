@@ -1,17 +1,18 @@
 <div class="row">
     <div class=" title col-xs-6 col-sm-12">
-        <h1>MovieBook</h1>
-        <h2>Créez votre livre personnalisé </h2>
+        <a class="logo"><img class="logo" src="./resources/img/logo_moviebook_tout.png"></a>
     </div>
     <div class=" title col-xs-6 col-sm-12"></div>
     <div class="left col-xs-6 col-sm-4">
         <!-- <p>Développé par CFA UPMC Students</p>-->
-        <img src="resources/img/plume.jpg">
+        
     </div>
     <div class="formLogin form col-xs-6 col-sm-6">
         <form action="index.php?ctrl=user&action=doLogin" method="post">
-            <input type="email" name="mail" id="mail" placeholder="Identifiant" required>
+            <input class="form1" type="email" name="mail" id="mail" placeholder="Identifiant" required>
+            <br/>
             <input type="password" name="password" id="password" placeholder="Mot de passe">
+            <br/>
             <input type="submit" value="Connexion">
             <p>Pas encore inscrit?</p><a class="create" href="index.php?ctrl=user&action=createUser">Créer un compte</a>
             <?php
