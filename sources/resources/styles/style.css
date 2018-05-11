@@ -296,15 +296,21 @@ input[type="submit"] {
     height: 530px;
 }
 
-.form1: {
-/*
+.loginForm {
     border: none;
     text-decoration: none;
-        margin-top: 20px;
+    margin-top: 20px;
     background-color: transparent;
     border: none;
     border-bottom: 2px solid white;
     border-radius: 0px !important;
     box-shadow: none;
-*/
+    border-bottom: 1px solid;
+}
+
+.submitLoginForm {
+    background-color: #F44141;
+    border: none;
+    color: white;
+    border-radius: 20px;
 }
