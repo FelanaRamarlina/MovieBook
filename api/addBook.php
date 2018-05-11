@@ -47,7 +47,7 @@ class PDF extends FPDF {
         $this->Text(90, 34, "Titre : ");
         $this->Text(130, 34, utf8_decode($titre));
 
-        $this->Text(90, 44, utf8_decode("Nationalitée : "));
+        $this->Text(90, 44, utf8_decode("Nationalité : "));
         $this->Text(130, 44, utf8_decode($nat));
 
         $this->Text(90, 54, "Auteur : ");
