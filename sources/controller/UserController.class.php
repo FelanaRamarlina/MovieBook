@@ -108,8 +108,9 @@ class userController {
                         "password" => md5($_POST['password']),
                         "admin" => false
                     ));
-                    /* $page = "default";
-                     $_SESSION['user'] = $_POST['email'];*/
+                    /* $page = "default";*/
+                     $_SESSION['user'] = $_POST['email'];
+                    header('location: index.php?ctrl=sheet&action=sheets');
                 }
             }
         }
