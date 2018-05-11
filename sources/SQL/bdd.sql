@@ -25,14 +25,14 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `book` (
-  "id" VARCHAR(255),
-  "name" VARCHAR(255),
-  "create_at" DATETIME
+  `id` VARCHAR(255),
+  `name` VARCHAR(255),
+  `create_at` DATETIME
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `sheets_book` (
-  "id_sheet" INT,
-  "id_book" VARCHAR(255)
+  `id_sheet` INT,
+  `id_book` VARCHAR(255)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `actors` (
@@ -169,8 +169,3 @@ ALTER TABLE `sheets_categories`
       ADD CONSTRAINT `id_category` FOREIGN KEY (`id_category`) REFERENCES `categories` (`id`);
 ALTER TABLE `sheets_categories`
       ADD CONSTRAINT `id_sheet_category` FOREIGN KEY (`id_sheet`) REFERENCES `sheets` (`id`);
-
-
-
-
-
