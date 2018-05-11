@@ -47,6 +47,7 @@ var app = new Vue({
             for(let i = 0; i < this.sheets.length; i++) {
                 if(this.sheets[i].id == id) {
                     this.draft.push(this.sheets[i]);
+                    this.sheets.splice(i, 1);
                 }
             }
             // this.draft.push(this.sheets[parseInt(id)]);
@@ -54,7 +55,25 @@ var app = new Vue({
         },
         resetDraft: function() {
             this.draft = [];
+            this.sheets = [];
             this.draftHint = !this.draftHint;
+            fetch('http://localhost:8888/git/MovieBook/api/Sheet.php', {
+                    method: 'GET',
+                    headers: {
+                        Accept: 'application/json',
+                    },
+                },
+            ).then(response => {
+                if (response.ok) {
+                    response.json().then(json => {
+                        this.sheets = json;
+
+                        for(let i = 0; i<this.sheets.length; i++) {
+                            this.sheets[i].id = this.sheets[i].id - 1;
+                        }
+                    });
+                }
+            });
         },
         createPDF: function (event) {
             // Requete http à l'api
