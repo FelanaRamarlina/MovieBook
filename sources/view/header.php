@@ -14,7 +14,8 @@
 <body>
 <?php if(isset($_SESSION['user'])) { ?>
 <nav class="navbar navbar-expand navbar-light bg-light">
-    <a class="navbar-brand" href="index.php"><img class="logo" src="./resources/img/logo_moviebook_sans-ecriture.png"></a>
+    <a class="navbar-brand" href="index.php"><img class="logo" src="./resources/img/logo_moviebook11.png"></a>
+    <a class="navbar-brand">MovieBook</a> 
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
         <li class="nav-item"><a class="nav-link" href="index.php?ctrl=sheet&action=sheets">Fiches</a></li>
         <li class="nav-item"><a class="nav-link" href="index.php?ctrl=book&action=present">Créer un Book</a></li>

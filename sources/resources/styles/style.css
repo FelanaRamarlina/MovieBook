@@ -8,7 +8,8 @@ body {
 }
 
 .navbar-brand>img{
-    height: 90px !important;
+    height: 60px !important;
+    padding-left: 15px;
 }
 .mon-book{
     color:#ab4b54;
@@ -287,4 +288,38 @@ input[type="submit"] {
     color:#28a745;;
     border:1px solid #28a745;
 
+}
+
+.logo {
+    margin-bottom: 0;
+    margin-left: 7.3%;
+    height: 530px;
+}
+
+.loginForm {
+    border: none;
+    text-decoration: none;
+    margin-top: 20px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    border-radius: 0px !important;
+    box-shadow: none;
+    border-bottom: 1px solid;
+    outline: none;
+}
+
+.loginForm:focus {
+    border-bottom: 1px solid #F44141;
+}
+
+.loginForm:-webkit-autofill {
+    -webkit-box-shadow: inset 0 0 0px 9999px white;
+}
+
+.submitLoginForm {
+    background-color: #F44141;
+    border: none;
+    color: white;
+    border-radius: 20px;
 }

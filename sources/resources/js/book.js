@@ -10,7 +10,7 @@ var app = new Vue({
        urlBook: ""
    },
     created: function() {
-        fetch('http://localhost:8888/git/MovieBook/api/Sheet.php', {
+        fetch('http://localhost:8888/licence%20web/MovieBook/api/Sheet.php', {
                 method: 'GET',
                 headers: {
                     Accept: 'application/json',
