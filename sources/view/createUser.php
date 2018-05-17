@@ -13,6 +13,7 @@
             <?php
             if(isset($info)) { echo "<p>".$info."</p>";}
             ?>
+            <a href="index.php?ctrl=user&action=login" style="text-align: center">Connexion</a>
         </form>
     </div>
     <div class="col-md-3"></div>
