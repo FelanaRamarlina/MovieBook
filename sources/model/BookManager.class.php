@@ -13,4 +13,13 @@ class BookManager {
 
         return $books;
     }
+
+    public function findSelf() {
+        $request = $this->bdd->prepare("SELECT * FROM book WHERE created_by = (SELECT id FROM users WHERE mail = :email)");
+        $request->execute(array(
+           "email" => $_SESSION['user']
+        ));
+
+        return $request->fetchAll();
+    }
 }

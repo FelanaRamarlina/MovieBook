@@ -109,7 +109,7 @@ class userController {
                         "admin" => false
                     ));
                     /* $page = "default";*/
-                     $_SESSION['user'] = $_POST['email'];
+                     $_SESSION['user'] = $_POST['mail'];
                     header('location: index.php?ctrl=sheet&action=sheets');
                 }
             }

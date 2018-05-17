@@ -21,6 +21,7 @@ class bookController {
 
     public function listBooks() {
         $books = $this->bookManager->findAll();
+        $selfBooks = $this->bookManager->findSelf();
         $page = "listBook";
         require('./view/main.php');
     }
