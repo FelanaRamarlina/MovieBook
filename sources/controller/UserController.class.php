@@ -88,9 +88,11 @@ class userController {
                 while ($donnees = $query->fetch()) {
                     $mail = $donnees['mail'];
                 }
-                if (isset($mail)) {
+                if (isset($mail) && $mail !== "") {
                     $page = "createUser";
-                    $info = "L'adresse email insérée existe déjà.";
+                    $info = "<p class='error-msg'>L'adresse email spécifiée existe déjà.</p>";
+                    require('./view/main.php');
+                    exit();
                 } else {
                     $doCreateQuery = "INSERT INTO users VALUES(
                         '',
