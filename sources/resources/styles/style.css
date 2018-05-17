@@ -163,8 +163,8 @@ input[type="submit"] {
 }
 
 .tile-img {
-    width: 200px;
-    height: 300px;
+    width: 100%;
+    height: 100%;
     margin: auto;
     display: block;
 }
@@ -196,8 +196,8 @@ input[type="submit"] {
 }
 
 .book-img {
-    width: 200px;
-    height: 300px;
+    width: 60%;
+    height: 60%;
 }
 
 .book-row {

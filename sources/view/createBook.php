@@ -15,6 +15,7 @@
                 <p v-show="draftHint">Cliquez sur "Ajouter" pour commencer à créer votre book.</p>
                 <div class="mv-shadow mt-3" id="book-container">
                     <div class="title-container">
+                        <input id="userEmail" type="hidden" value="<?php echo $_SESSION['user'] ?>">
                         <input v-show="!draftHint" type="text" placeholder="titre du book" class="book-custom-title" id="bookTitle" v-on:keyup="changeTitle">
                     </div>
                     <div v-for="element in draft" :id=`sheet-id-${element.id}` class="book-row">

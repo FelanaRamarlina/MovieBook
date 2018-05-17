@@ -7,6 +7,7 @@ class PDF extends FPDF {
     private $params;
     private $sheets;
     public $title;
+    private $user;
 
     function __construct($orientation = 'P', $unit = 'mm', $size = 'A4')
     {
@@ -14,7 +15,7 @@ class PDF extends FPDF {
         $this->params = json_decode(file_get_contents('php://input'), true);
         $this->sheets = $this->params[0];
         $this->title = $this->params[1]['bookTitle'];
-
+        $this->user = $this->params[2]['user'];
     }
 
     public function build() {
@@ -68,11 +69,12 @@ class PDF extends FPDF {
     public function addDatabase() {
         $idBook = strtotime('now');
         $db = APIDatabase::getDatabase();
-        $request = $db->prepare("INSERT INTO book VALUES(:idbook, :name, :date)");
+        $request = $db->prepare("INSERT INTO book VALUES(:idbook, :name, :date, :createdby)");
         $request->execute(array(
             "idbook" => $idBook,
             "name" => $this->title,
-            "date" => date('Y-m-d H:i:s')
+            "date" => date('Y-m-d H:i:s'),
+            "createdby" => $this->getUserId()
         ));
 
         foreach ($this->sheets as $sheet) {
@@ -82,6 +84,17 @@ class PDF extends FPDF {
                 "idbook" => $idBook
             ));
         }
+    }
+
+    private function getUserId() {
+        $db = APIDatabase::getDatabase();
+        $request = $db->prepare("SELECT id FROM users WHERE mail = :mail LIMIT 1");
+        $request->execute(array(
+           "mail" => $this->user
+        ));
+
+        $res = $request->fetch();
+        return $res['id'];
     }
 }
 
