@@ -68,10 +68,15 @@ class sheetController {
         require('./view/main.php');
 	}
     public function doCreateSheet() {
-  
-                 
-            
-      
+
+	                if(move_uploaded_file($_FILES['image']['tmp_name'], "./resources/img/".$_FILES['image']['name'])) {
+                        $infos = "ok";
+                    }else {
+                        $page = "createSheet";
+                        $infos = "Erreur durant l'upload de l'image";
+                        require('./view/main.php');
+                    }
+
                     $doCreateQuery = "INSERT INTO sheets VALUES(
                         '',
                         :title,
@@ -88,7 +93,7 @@ class sheetController {
                         "date" => $_POST['date'],
                         "nationality" => $_POST['nationality'],
                         "synopsis" => $_POST['synopsis'],
-                        "image" => $_POST['image']
+                        "image" => $_FILES['image']['name']
                     ));
                     header('location: index.php?ctrl=sheet&action=sheets');
                     var_dump($ex);

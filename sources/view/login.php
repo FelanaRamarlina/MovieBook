@@ -11,7 +11,7 @@
         <form action="index.php?ctrl=user&action=doLogin" method="post">
             <input class="loginForm" type="email" name="mail" id="mail" placeholder="Identifiant" required>
             <br/>
-            <input class="loginForm" type="password" name="password" id="password" placeholder="Mot de passe">
+            <input class="loginForm" type="password" name="password" id="password" placeholder="Mot de passe" required>
             <br/>
             <input class="submitLoginForm" type="submit" value="Connexion">
             <p>Pas encore inscrit?</p><a class="create" href="index.php?ctrl=user&action=createUser">Créer un compte</a>

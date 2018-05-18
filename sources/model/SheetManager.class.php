@@ -21,7 +21,6 @@ class SheetManager{
 						'nationality' => $sheet->get_nationality(),
 						'synopsis' => $sheet->get_synopsis(),
 						'image' => $sheet->get_image(),
-						
 					)
 				);
 				

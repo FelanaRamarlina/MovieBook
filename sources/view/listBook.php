@@ -21,7 +21,7 @@
         <ul>
         <?php
         if(count($selfBooks) == 0) {
-            echo "<p>Vous n'avez pas encore créer de book</p>";
+            echo "<p>Vous n'avez pas encore créé de book</p>";
         }
         else {
             foreach ($selfBooks as $selfBook) {
