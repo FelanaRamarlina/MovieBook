@@ -95,6 +95,17 @@ class sheetController {
                         "synopsis" => $_POST['synopsis'],
                         "image" => $_FILES['image']['name']
                     ));
+
+                    $idsheet = $this->db->prepare("SELECT id FROM sheets ORDER BY id DESC LIMIT 1");
+                    $idsheet->execute();
+                    $lastid = $idsheet->fetch()['id'];
+
+                    $req1 = $this->db->prepare("INSERT INTO sheets_categories VALUES (:ids, :idc)");
+                    $req1->execute(array(
+                        "ids" => $lastid,
+                        "idc" => $_POST['cat']
+                    ));
+
                     header('location: index.php?ctrl=sheet&action=sheets');
                     var_dump($ex);
                 
